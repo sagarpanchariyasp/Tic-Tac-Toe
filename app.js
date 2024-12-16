@@ -1,6 +1,7 @@
 let boxes = document.querySelectorAll(".box");
 let resetbtn = document.querySelector(".resetbtn");
 let ternO = true ;
+let winnerName = document.querySelector("#winnername");
 
 const winPatterns = [
     [0, 1, 2],
@@ -14,6 +15,12 @@ const winPatterns = [
     
 ]
 
+const disableBoxes = () => {
+    for (box of boxes) {
+        box.disabled = true;
+    }
+}
+
 boxes.forEach( (box) => {
     box.addEventListener("click", () => {
         if (ternO) {
@@ -23,5 +30,31 @@ boxes.forEach( (box) => {
             box.innerText = "O";
             ternO = true;
         }
+        box.disabled = true;
+
+        checkWinner() ;
     });
+
+});
+
+const checkWinner = () => {
+    for(patterns of winPatterns) {
+        
+
+    let pos1Val = boxes[patterns[0]].innerText
+    let pos2Val = boxes[patterns[1]].innerText
+    let pos3Val = boxes[patterns[2]].innerText
+
+    if(pos1Val != "" && pos2Val != "" && pos3Val != "") {
+        if(pos1Val === pos2Val && pos2Val === pos3Val) {
+            disableBoxes();
+            winnerName.innerText = ` 👑 Winner is ${pos1Val} ✨✨ `
+        }
+    }
+
+    }
+}
+
+resetbtn.addEventListener("click", () => {
+    window.location.reload(); // Reloads the page
 });

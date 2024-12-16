@@ -42,11 +42,12 @@ main {
 .box {
     height: 20vmin;
     width: 20vmin;
-    background-color: EC7357;
-    border-radius: 1rem;
+    background-color: #FBFFB9;
+    border-radius: 1rem;    
     border: none;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
     font-size: 10vmin;
+    color: black;
 }
 
 #resetbtn {
@@ -57,5 +58,5 @@ main {
     color: white;
     border: none;
     border-radius: 1rem;
-    
+
 }
